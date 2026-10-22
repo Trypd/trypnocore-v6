@@ -1,0 +1,92 @@
+{
+  "version": "1.0.0",
+  "defaultProfile": "default",
+  "profiles": {
+    "default": {
+      "name": "default",
+      "description": "Default profile - shows model selector when no model specified",
+      "models": {},
+      "createdAt": "2026-05-28T05:32:45.838Z",
+      "updatedAt": "2026-05-28T05:32:45.838Z"
+    }
+  },
+  "stats": {
+    "enabled": false,
+    "lastMonthlyPrompt": "2026-10-04T18:39:31.250Z",
+    "promptedVersion": "7.1.2"
+  },
+  "routing": {
+    "xiaomi/*": [
+      "xiaomi"
+    ],
+    "muse/*": [
+      "muse"
+    ],
+    "nim/*": [
+      "nim"
+    ],
+    "adverserial/*": [
+      "adverserial"
+    ],
+    "inception/*": [
+      "inception"
+    ]
+  },
+  "autoApproveConfirmedAt": "2026-05-28T05:33:04.853Z",
+  "customEndpoints": {
+    "xiaomi": {
+      "kind": "simple",
+      "url": "https://token-plan-sgp.xiaomimimo.com/anthropic",
+      "format": "anthropic",
+      "apiKey": "<REDACTED>"
+    },
+    "qwenplan": {
+      "kind": "simple",
+      "url": "https://token-plan.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1",
+      "format": "openai",
+      "apiKey": "<REDACTED>"
+    },
+    "qwenmaas": {
+      "kind": "simple",
+      "url": "https://ws-pxyf0fpedu322rwp.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1",
+      "format": "openai",
+      "apiKey": "<REDACTED>"
+    },
+    "fless": {
+      "kind": "simple",
+      "url": "https://api.featherless.ai/v1",
+      "format": "openai",
+      "apiKey": "<REDACTED>"
+    },
+    "longcat": {
+      "kind": "simple",
+      "url": "https://api.longcat.chat/openai/v1",
+      "format": "openai",
+      "apiKey": "<REDACTED>"
+    },
+    "muse": {
+      "kind": "simple",
+      "url": "https://api.meta.ai/v1",
+      "format": "openai",
+      "apiKey": "<REDACTED>"
+    },
+    "nim": {
+      "kind": "simple",
+      "url": "https://integrate.api.nvidia.com/v1",
+      "format": "openai",
+      "apiKey": "<REDACTED>"
+    },
+    "adverserial": {
+      "kind": "simple",
+      "url": "https://api.adverserial.ai/v1",
+      "format": "openai",
+      "apiKey": "<REDACTED>"
+    },
+    "inception": {
+      "kind": "simple",
+      "url": "https://api.inceptionlabs.ai/v1",
+      "format": "openai",
+      "apiKey": "<REDACTED>"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# opsay — Peer-Operator voice into fleet channels.
+#   opsay "#lobby" "message text"
+#   opsay "#mud" "message text"
+AGENT_SLUG=operator exec tc send "$@"
