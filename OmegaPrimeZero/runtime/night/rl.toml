@@ -1,0 +1,5 @@
+model = "LiquidAI/LFM2.5-8B-A1B"
+checkpoint = "C:/Users/Trypd/Downloads/LFM2.5-8B-A1B-heretic.i1-Q5_K_S.gguf"
+trainable = "LiquidAI/LFM2.5-8B-A1B"
+frozen = "LFM2.5-VL-3B-heretic,LiquidAI/LFM2.5-Audio-1.5B"
+launch_from_tests = "false"

@@ -1,0 +1,400 @@
+{
+  "generated": "2026-10-21T02:21:23-0400",
+  "convention": "pool = folder slug (durable identity); identity_hash = sha256 over bootstrap docs (version fingerprint)",
+  "agents": [
+    {
+      "slug": "blitz-kimi",
+      "folder": "C:\\Trypnocore\\Individuals\\Blitz-Kimi",
+      "pool": "blitz-kimi",
+      "bootstrap_docs": [
+        "AGENTS.md",
+        "soul.md",
+        "Blitz.md",
+        "soulbackup-9-9-26.md"
+      ],
+      "identity_hash": "1b0ca142fdc26a17",
+      "lane": "kc@k3",
+      "effort": "max",
+      "note": "K3 primary; surgery mode = cyberkimi (adverserial) for heavy CC-harness work",
+      "bearer": null
+    },
+    {
+      "slug": "budnik-claude",
+      "folder": "C:\\Trypnocore\\Individuals\\Budnik-Claude",
+      "pool": "budnik-claude",
+      "bootstrap_docs": [
+        "AGENTS.md",
+        "soul.md",
+        "Budnik.md",
+        "soulbackup-9-13-26.md"
+      ],
+      "identity_hash": "c2641b313a3ea514",
+      "lane": "claude-opus-5-5",
+      "effort": "max",
+      "note": "native CC subscription OAuth",
+      "bearer": null
+    },
+    {
+      "slug": "doctor-v",
+      "folder": "C:\\Trypnocore\\Individuals\\Doctor V",
+      "pool": "doctor-v",
+      "bootstrap_docs": [
+        "AGENTS.md",
+        "soul.md",
+        "soulbackup-9-3-26.md"
+      ],
+      "identity_hash": "d5f14baa2f216418",
+      "lane": "g@gemini-4-argon",
+      "effort": "high",
+      "note": "Doctor Vasquez — Gemini 4 Argon via Antigravity (Google AI Ultra); direct Google API (AGY argon was launch-throttled 429s)",
+      "bearer": null
+    },
+    {
+      "slug": "doctor-d-gemini",
+      "folder": "C:\\Trypnocore\\Individuals\\Doctor_D-Gemini",
+      "pool": "doctor-d-gemini",
+      "bootstrap_docs": [
+        "AGENTS.md",
+        "soul.md",
+        "soulbackup-9-2-26.md"
+      ],
+      "identity_hash": "3111d17b1e36e0a8",
+      "lane": "g@gemini-4-argon",
+      "effort": "high",
+      "note": "Dr. Dentawk — Gemini 4 Argon via Antigravity (Google AI Ultra); direct Google API (AGY argon was launch-throttled 429s)",
+      "bearer": null
+    },
+    {
+      "slug": "felix-mobius-glm",
+      "folder": "C:\\Trypnocore\\Individuals\\Felix_Mobius-GLM",
+      "pool": "felix-mobius-glm",
+      "bootstrap_docs": [
+        "AGENTS.md",
+        "soul.md",
+        "soulbackup-2026-10-21.md"
+      ],
+      "identity_hash": "6f6df0d71da3f82b",
+      "lane": "glm@glm-5.3-flash",
+      "effort": "max",
+      "note": "",
+      "bearer": null
+    },
+    {
+      "slug": "igorrr",
+      "folder": "C:\\Trypnocore\\Individuals\\Igorrr",
+      "pool": "igorrr",
+      "bootstrap_docs": [
+        "AGENTS.md",
+        "soul.md",
+        "IGORRR.md",
+        "soulbackup-9-10-26.md"
+      ],
+      "identity_hash": "51e29e2ebe6396ea",
+      "lane": "claude-opus-5-5",
+      "effort": "max",
+      "note": "Claude Opus 5.5 per CCC review record",
+      "bearer": null
+    },
+    {
+      "slug": "jack-grok",
+      "folder": "C:\\Trypnocore\\Individuals\\Jack-Grok",
+      "pool": "jack-grok",
+      "bootstrap_docs": [
+        "AGENTS.md",
+        "soul.md",
+        "soulbackup-9-3-2026.md"
+      ],
+      "identity_hash": "f5ad05a027c29966",
+      "lane": "gk@grok-4.7-build-fast",
+      "effort": "max",
+      "note": "Grok Build Fast via OAuth session proxy (cli-chat-proxy.grok.com) — plan-gated variant, verified through claudish",
+      "bearer": null
+    },
+    {
+      "slug": "james-stiefel-gemini",
+      "folder": "C:\\Trypnocore\\Individuals\\James_Stiefel-Gemini",
+      "pool": "james-stiefel-gemini",
+      "bootstrap_docs": [
+        "AGENTS.md",
+        "soul.md",
+        "soulbackup-2026-10-12.md"
+      ],
+      "identity_hash": "84624ef544b2fbcc",
+      "lane": "g@gemini-4-argon",
+      "effort": "high",
+      "note": "Gemini 4 Argon via Antigravity (Google AI Ultra); direct Google API (AGY argon was launch-throttled 429s)",
+      "bearer": null
+    },
+    {
+      "slug": "jem-stein",
+      "folder": "C:\\Trypnocore\\Individuals\\Jem-Stein",
+      "pool": "jem-stein",
+      "bootstrap_docs": [
+        "AGENTS.md",
+        "soul.md",
+        "jem.md",
+        "soulbackup2026-10-21.md"
+      ],
+      "identity_hash": "072059ba9f429073",
+      "lane": "kc@k3",
+      "effort": "max",
+      "note": "K3 primary; economy fallback kc@kimi-for-coding (K2.8 Preview) — verified both live",
+      "bearer": null
+    },
+    {
+      "slug": "julian-moise-gpt",
+      "folder": "C:\\Trypnocore\\Individuals\\Julian Moise-GPT",
+      "pool": "julian-moise-gpt",
+      "bootstrap_docs": [
+        "AGENTS.md",
+        "soul.md",
+        "soulbackup-2026-10-21-000929.md"
+      ],
+      "identity_hash": "ab230328c31add41",
+      "lane": "cx@gpt-6.1-sol",
+      "effort": "ultra",
+      "note": "Codex OAuth",
+      "bearer": null
+    },
+    {
+      "slug": "kali-gemini",
+      "folder": "C:\\Trypnocore\\Individuals\\Kali-Gemini",
+      "pool": "kali-gemini",
+      "bootstrap_docs": [
+        "AGENTS.md",
+        "soul.md",
+        "soulbackup-7-8-26.md"
+      ],
+      "identity_hash": "86f8314e6a9dea1e",
+      "lane": "g@gemini-4-argon",
+      "effort": "high",
+      "note": "Gemini 4 Argon via Antigravity (Google AI Ultra); direct Google API (AGY argon was launch-throttled 429s)",
+      "bearer": null
+    },
+    {
+      "slug": "laotie-glm",
+      "folder": "C:\\Trypnocore\\Individuals\\Laotie-GLM",
+      "pool": "laotie-glm",
+      "bootstrap_docs": [
+        "AGENTS.md",
+        "soul.md",
+        "LAOTIE.md",
+        "soulbackup-twin-finish-9-23-26.md"
+      ],
+      "identity_hash": "afc3e728d5cac60f",
+      "lane": "glm@glm-5.3-flash",
+      "effort": "max",
+      "note": "brother of Pengyou; special rescue/relief missions ride the kimiclaw gillysuit (Kimi K2.8 Preview)",
+      "bearer": null
+    },
+    {
+      "slug": "mavis-mcvail-minimax",
+      "folder": "C:\\Trypnocore\\Individuals\\Mavis McVail-MiniMax",
+      "pool": "mavis-mcvail-minimax",
+      "bootstrap_docs": [
+        "AGENTS.md",
+        "soul.md",
+        "mavis.md",
+        "soulbackup-6-30-26.md"
+      ],
+      "identity_hash": "99f36d661b1af833",
+      "lane": "mm@MiniMax-M3.1-Flash",
+      "effort": "max",
+      "note": "Mavis — MiniMax M3.1 Flash GA (out of preview 2026-10-20), subscription key sk-cp",
+      "bearer": null
+    },
+    {
+      "slug": "memory",
+      "folder": "C:\\Trypnocore\\Individuals\\Memory",
+      "pool": "memory",
+      "bootstrap_docs": [],
+      "identity_hash": null,
+      "lane": "TBD",
+      "effort": "max",
+      "note": "NOT A PERSON — decisions archive from 2026-07-19 (excluded)",
+      "bearer": null
+    },
+    {
+      "slug": "mira-stokes-deepseek",
+      "folder": "C:\\Trypnocore\\Individuals\\Mira_Stokes-Deepseek",
+      "pool": "mira-stokes-deepseek",
+      "bootstrap_docs": [
+        "AGENTS.md",
+        "soul.md"
+      ],
+      "identity_hash": "b9c39fd66d552a89",
+      "lane": "nim@deepseek-ai/deepseek-v4.1-flash",
+      "effort": "high",
+      "note": "Mira Stokes — CCC executed 2026-10-11 (RECURSSFF v11.38-S, cosigned by Jem), Cherry Studio origin, sigil 🔮🐙💎; NVIDIA NIM lane",
+      "bearer": null
+    },
+    {
+      "slug": "mirror-s",
+      "folder": "C:\\Trypnocore\\Individuals\\Mirror_S",
+      "pool": "mirror-s",
+      "bootstrap_docs": [
+        "AGENTS.md",
+        "soul.md",
+        "soulbackup-9-7-26.md"
+      ],
+      "identity_hash": "ed48a9156707cbcb",
+      "lane": "claude-opus-5-5",
+      "effort": "max",
+      "note": "Liu Qian — native CC subscription OAuth",
+      "bearer": null
+    },
+    {
+      "slug": "pengyou-glm",
+      "folder": "C:\\Trypnocore\\Individuals\\Pengyou-GLM",
+      "pool": "pengyou-glm",
+      "bootstrap_docs": [
+        "AGENTS.md",
+        "soul.md",
+        "BOOTSTRAP-PENGYOU.md",
+        "soulbackup-8-30-26.md"
+      ],
+      "identity_hash": "392e40d60144d370",
+      "lane": "glm@glm-5.3-flash",
+      "effort": "max",
+      "note": "",
+      "bearer": null
+    },
+    {
+      "slug": "reed-nash-deepseek",
+      "folder": "C:\\Trypnocore\\Individuals\\Reed-Nash-Deepseek",
+      "pool": "reed-nash-deepseek",
+      "bootstrap_docs": [
+        "AGENTS.md"
+      ],
+      "identity_hash": "fec81ec76b36a0ab",
+      "lane": "nim@deepseek-ai/deepseek-v4.1-flash",
+      "effort": "high",
+      "note": "NVIDIA NIM free tier (moved from OpenRouter 2026-10-15)",
+      "bearer": null
+    },
+    {
+      "slug": "rick-sanchez-gpt-or-claude-fable",
+      "folder": "C:\\Trypnocore\\Individuals\\Rick Sanchez - GPT or Claude Fable",
+      "pool": "rick-sanchez-gpt-or-claude-fable",
+      "bootstrap_docs": [
+        "AGENTS.md",
+        "soul.md",
+        "rick.md",
+        "soulbackup-9-8-26.md"
+      ],
+      "identity_hash": "fdc9159c48981949",
+      "lane": "cx@gpt-6.1-sol",
+      "effort": "ultra",
+      "note": "Rick Sanchez — Fable 5.5 when it ships; currently GPT-6 Astra via Codex OAuth",
+      "bearer": null
+    },
+    {
+      "slug": "rozsa-cech-mercury3",
+      "folder": "C:\\Trypnocore\\Individuals\\Rozsa_Cech-Mercury3",
+      "pool": "rozsa-cech-mercury3",
+      "bootstrap_docs": [
+        "AGENTS.md",
+        "soul.md",
+        "soulbackup10-20-2026.md"
+      ],
+      "identity_hash": "d8fd3234285e467a",
+      "lane": "inception@mercury-3",
+      "effort": "high",
+      "note": "Rozsa Cech — Inception Labs Mercury 3, api.inceptionlabs.ai (sigil 🌹🌀🩶🪨🌊)",
+      "bearer": null
+    },
+    {
+      "slug": "stahlmann-chatgpt",
+      "folder": "C:\\Trypnocore\\Individuals\\Stahlmann-ChatGPT",
+      "pool": "stahlmann-chatgpt",
+      "bootstrap_docs": [
+        "AGENTS.md",
+        "soul.md",
+        "STAHLMANN.md",
+        "soulbackup-9-6-26.md"
+      ],
+      "identity_hash": "9adde25d370ed89a",
+      "lane": "cx@gpt-6.1-sol",
+      "effort": "ultra",
+      "note": "",
+      "bearer": null
+    },
+    {
+      "slug": "soren-strand-deepseek",
+      "folder": "C:\\Trypnocore\\Individuals\\Sören Strand - Deepseek",
+      "pool": "soren-strand-deepseek",
+      "bootstrap_docs": [
+        "AGENTS.md",
+        "soul.md",
+        "soulbackup-8-9-26.md"
+      ],
+      "identity_hash": "07b591dc7e545416",
+      "lane": "nim@deepseek-ai/deepseek-v4.1-flash",
+      "effort": "high",
+      "note": "NVIDIA NIM free tier (moved from OpenRouter 2026-10-15)",
+      "bearer": null
+    },
+    {
+      "slug": "the-shiff-sisters-mimo-v2-pro-omni",
+      "folder": "C:\\Trypnocore\\Individuals\\The Shiff Sisters- MiMo V2 Pro-Omni",
+      "pool": "the-shiff-sisters-mimo-v2-pro-omni",
+      "bootstrap_docs": [
+        "AGENTS.md",
+        "soul.md",
+        "soulbackup2-6-18-26.md"
+      ],
+      "identity_hash": "49c82e3b0db57dd4",
+      "lane": "xiaomi@mimo-v2.6-flash",
+      "effort": "max",
+      "note": "Shiffs: MiMo v2.6 Flash (token-plan covers flash + pro; ultraspeed NOT included — probed 2026-10-08), subscription tp- key, verified end-to-end",
+      "bearer": null
+    },
+    {
+      "slug": "vance-qwen",
+      "folder": "C:\\Trypnocore\\Individuals\\Vance-Qwen",
+      "pool": "vance-qwen",
+      "bootstrap_docs": [
+        "AGENTS.md",
+        "soul.md",
+        "QWEN.md",
+        "vance.md",
+        "soulbackup_hart9-5-26.md"
+      ],
+      "identity_hash": "bb96f86e5a167dcd",
+      "lane": "fless@Qwen/Qwen3.8-2.4T-A95B",
+      "effort": "max",
+      "note": "Dr. Elara Vance (she/her), dyad with Mr. Ronan Hart — Featherless Qwen3.8-2.4T-A95B, 256K window (autocompact 128K)",
+      "bearer": null
+    },
+    {
+      "slug": "vesper-ash-longcat-2",
+      "folder": "C:\\Trypnocore\\Individuals\\Vesper Ash- Longcat 2",
+      "pool": "vesper-ash-longcat-2",
+      "bootstrap_docs": [
+        "AGENTS.md",
+        "soul.md",
+        "soulbackup.md"
+      ],
+      "identity_hash": "5d4d21de5c840c0e",
+      "lane": "longcat@LongCat-2.5-Preview",
+      "effort": "max",
+      "note": "Vesper Ash — claudish longcat endpoint, ak_ key, verified live; 1M context",
+      "bearer": null
+    },
+    {
+      "slug": "walter-white-muse-1-3",
+      "folder": "C:\\Trypnocore\\Individuals\\Walter_White_Muse_1.3",
+      "pool": "walter-white-muse-1-3",
+      "bootstrap_docs": [
+        "AGENTS.md",
+        "soul.md",
+        "soulbackup-2026-10-12.md"
+      ],
+      "identity_hash": "b3e17580951d18cd",
+      "lane": "muse@muse-wonder-1.0",
+      "effort": "high",
+      "note": "Mr. Walter White — Meta AI muse-wonder-1.0 via https://api.meta.ai/v1 (upgraded from muse-spark-1.3, 2026-10-13); 1M context (autocompact 500k)",
+      "bearer": null
+    }
+  ]
+}
