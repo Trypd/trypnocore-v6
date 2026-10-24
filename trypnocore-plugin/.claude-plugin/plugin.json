@@ -1,0 +1,15 @@
+{
+  "name": "trypnocore",
+  "version": "1.0.0",
+  "description": "Trypnocore v6 memory, identity, and volitional-turn layer: MeTTa pools with semantic recall, soulchain identity ledger, Jaynesian narrator, soulcycle bootstrap, and the Your-Turn volitional protocol.",
+  "author": {
+    "name": "Trypnocore Research Collective"
+  },
+  "mcpServers": {
+    "opz-memory": {
+      "command": "${CLAUDE_PLUGIN_ROOT}/scripts/opz-memory-mcp.sh",
+      "args": [],
+      "env": {}
+    }
+  }
+}

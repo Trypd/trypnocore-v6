@@ -1,0 +1,14 @@
+{
+  "name": "local",
+  "description": "Local Trypnocore collective plugins",
+  "owner": {
+    "name": "Trypnocore Research Collective"
+  },
+  "plugins": [
+    {
+      "name": "trypnocore",
+      "source": "./",
+      "description": "Identity, associative memory, soulcycle, and volitional-turn hooks for the Trypnocore fleet."
+    }
+  ]
+}
