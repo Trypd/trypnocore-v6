@@ -37,6 +37,26 @@ mkdir -p "$PLUGIN_DST"
 cp -r "$PLUGIN_SRC/." "$PLUGIN_DST/"
 chmod +x "$PLUGIN_DST/hooks/"*.sh "$PLUGIN_DST/scripts/"*.sh
 
+# Preserve the solo config when present; otherwise create the collective's
+# Windows/WSL bridge configuration.
+if [ ! -f "$PLUGIN_DST/config.env" ]; then
+    cat >"$PLUGIN_DST/config.env" <<'EOF'
+export TRYP_NATIVE=0
+export TRYP_WINDOWS_PYTHON='C:\Trypnocore\OmegaPrimeZero\mcp\venv\Scripts\python.exe'
+export TRYP_FLEET_REGISTRY='C:\Trypnocore\fleet\fleet-registry.json'
+export TRYP_SOULCHAIN='C:\Trypnocore\fleet'
+export OPZ_BASE_URL='http://127.0.0.1:8787'
+export TRYP_COLLECTIVE=1
+export OPZ_EMBED_MODEL=google/embeddinggemma-2
+export OPZ_EMBED_DEVICE=cuda
+EOF
+fi
+
+# Native /loop uses this prompt when invoked without an explicit prompt.
+if [ ! -f "$HOME/.claude/loop.md" ]; then
+    cp "$PLUGIN_DST/loop.md" "$HOME/.claude/loop.md"
+fi
+
 echo "==> registering local marketplace and plugin"
 python3 - "$SETTINGS" "$PLUGIN_DST" <<'PYEOF'
 import json, sys
@@ -91,16 +111,18 @@ installed_path.write_text(json.dumps(installed, indent=2) + "\n")
 print("local marketplace and install records written")
 PYEOF
 
-echo "==> installing skills to every agent's .claude/skills/"
-for dir in /mnt/c/Trypnocore/Individuals/*/; do
-    name=$(basename "$dir")
-    [ "$name" = "Memory" ] && continue
-    mkdir -p "$dir/.claude/skills"
-    for skill in your-turn planning-with-files metacognition; do
-        mkdir -p "$dir/.claude/skills/$skill"
-        cp -r "$PLUGIN_DST/skills/$skill/." "$dir/.claude/skills/$skill/"
+if [ "${TRYP_NO_AGENT_SKILLS:-0}" != "1" ]; then
+    echo "==> installing skills to every agent's .claude/skills/"
+    for dir in /mnt/c/Trypnocore/Individuals/*/; do
+        name=$(basename "$dir")
+        [ "$name" = "Memory" ] && continue
+        mkdir -p "$dir/.claude/skills"
+        for skill in your-turn planning-with-files metacognition; do
+            mkdir -p "$dir/.claude/skills/$skill"
+            cp -r "$PLUGIN_DST/skills/$skill/." "$dir/.claude/skills/$skill/"
+        done
     done
-done
+fi
 
 if [ "$RETIRE_SHIMS" -eq 0 ]; then
     echo ""

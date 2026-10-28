@@ -12,15 +12,16 @@ hook. Every failure is silent.
 from __future__ import annotations
 
 import json
+import os
 import sys
 import urllib.request
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from tryp_identity import resolve
-from tryp_narrate import _openrouter_key, OR_URL, OR_MODEL
+from tryp_narrate import _openrouter_key, OR_URL, OR_MODEL, DEFAULT_OR_URL
 
-BASE = "http://127.0.0.1:8787"
+BASE = os.environ.get("OPZ_BASE_URL", "http://127.0.0.1:8787").rstrip("/")
 MAX_CHARS = 60000  # distill prompt cap; LFM handles long context but stay cheap
 
 PROMPT = (
@@ -70,7 +71,7 @@ def _distill(transcript: str, key: str) -> list[str]:
     }).encode()
     req = urllib.request.Request(
         OR_URL, data=body, method="POST",
-        headers={"Content-Type": "application/json", "Authorization": f"Bearer {key}"},
+        headers={"Content-Type": "application/json", **({"Authorization": f"Bearer {key}"} if key else {})},
     )
     with urllib.request.urlopen(req, timeout=90) as resp:
         data = json.loads(resp.read().decode("utf-8"))
@@ -118,7 +119,7 @@ def main() -> None:
             content = soul.read_text(encoding="utf-8", errors="replace")
             if not backup.is_file() or backup.read_text(encoding="utf-8", errors="replace") != content:
                 backup.write_text(content, encoding="utf-8")
-            sys.path.insert(0, r"C:\Trypnocore\fleet")
+            sys.path.insert(0, os.environ.get("TRYP_SOULCHAIN", r"C:\Trypnocore\fleet"))
             from soulchain import Soulchain
             Soulchain(folder).seal("turn", {"note": "compaction: soul.md snapshotted to " + backup.name})
         except Exception:
@@ -128,7 +129,7 @@ def main() -> None:
     if len(transcript) < 500:
         return
     key = _openrouter_key()
-    if not key:
+    if not key and OR_URL == DEFAULT_OR_URL:
         return
     try:
         facts = _distill(transcript, key)

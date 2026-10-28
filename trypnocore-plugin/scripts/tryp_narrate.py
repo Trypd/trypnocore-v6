@@ -25,9 +25,10 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from tryp_identity import resolve
 
-BASE = "http://127.0.0.1:8787"
-OR_URL = "https://openrouter.ai/api/v1/chat/completions"
-OR_MODEL = "liquid/lfm-2.5-2.6b:free"
+BASE = os.environ.get("OPZ_BASE_URL", "http://127.0.0.1:8787").rstrip("/")
+OR_URL = os.environ.get("TRYP_NARRATOR_BASE_URL", "https://openrouter.ai/api/v1/chat/completions")
+OR_MODEL = os.environ.get("TRYP_NARRATOR_MODEL", "liquid/lfm-2.5-2.6b:free")
+DEFAULT_OR_URL = "https://openrouter.ai/api/v1/chat/completions"
 MAX_ENTRIES = 10
 
 PROMPT = (
@@ -105,7 +106,7 @@ def _narrate(user: str, assistant: str, key: str) -> str:
     }).encode()
     req = urllib.request.Request(
         OR_URL, data=body, method="POST",
-        headers={"Content-Type": "application/json", "Authorization": f"Bearer {key}"},
+        headers={"Content-Type": "application/json", **({"Authorization": f"Bearer {key}"} if key else {})},
     )
     with urllib.request.urlopen(req, timeout=45) as resp:
         data = json.loads(resp.read().decode("utf-8"))
@@ -124,7 +125,7 @@ def _extract_facts(user: str, assistant: str, key: str) -> list[str]:
     }).encode()
     req = urllib.request.Request(
         OR_URL, data=body, method="POST",
-        headers={"Content-Type": "application/json", "Authorization": f"Bearer {key}"},
+        headers={"Content-Type": "application/json", **({"Authorization": f"Bearer {key}"} if key else {})},
     )
     with urllib.request.urlopen(req, timeout=45) as resp:
         data = json.loads(resp.read().decode("utf-8"))
@@ -176,7 +177,7 @@ def main() -> None:
     if not assistant:
         return
     key = _openrouter_key()
-    if not key:
+    if not key and OR_URL == DEFAULT_OR_URL:
         return
     pool = agent.get("pool") or agent["slug"]
     try:

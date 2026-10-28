@@ -10,11 +10,12 @@ Reads the CC Stop payload on stdin ({"cwd", ...}). Fails silent.
 from __future__ import annotations
 
 import json
+import os
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-sys.path.insert(0, r"C:\Trypnocore\fleet")
+sys.path.insert(0, os.environ.get("TRYP_SOULCHAIN", r"C:\Trypnocore\fleet"))
 from tryp_identity import resolve
 
 

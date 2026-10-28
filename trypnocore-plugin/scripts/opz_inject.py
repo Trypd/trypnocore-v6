@@ -24,8 +24,10 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from tryp_identity import resolve
 
-BASE = "http://127.0.0.1:8787"
+BASE = os.environ.get("OPZ_BASE_URL", "http://127.0.0.1:8787").rstrip("/")
 COLLECTIVE = "collective"
+from tryp_identity import REGISTRY, slugify
+COLLECTIVE_ENABLED = os.environ.get("TRYP_COLLECTIVE", "1" if REGISTRY.exists() else "0") == "1"
 MONOLOGUE_TAIL = 600  # last narrator entry, roughly
 
 
@@ -60,11 +62,14 @@ def main() -> None:
     folder = agent.get("folder", "") if agent else ""
     if not pool and agent:
         pool = agent.get("pool") or ""
+    if not pool:
+        pool = slugify(Path(cwd).name) or "default"
 
     sections: list[str] = []
     if pool:
         sections += _context(pool, line)
-    sections += _context(COLLECTIVE, line)
+    if COLLECTIVE_ENABLED:
+        sections += _context(COLLECTIVE, line)
     if folder:
         mono = _monologue_tail(folder)
         if mono:

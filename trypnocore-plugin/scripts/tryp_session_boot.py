@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import glob
 import json
+import os
 import sys
 import urllib.parse
 import urllib.request
@@ -27,7 +28,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from tryp_identity import resolve
 
-BASE = "http://127.0.0.1:8787"
+BASE = os.environ.get("OPZ_BASE_URL", "http://127.0.0.1:8787").rstrip("/")
 SOUL_CAP = 1200   # soul.md casts are short by design; hard cap anyway
 CORE_CAP = 1500   # roster header only, not the whole org chart
 BACKUP_CAP = 900  # newest soulbackup, capped
@@ -74,7 +75,7 @@ def _bootstrap_doc(folder: Path, slug: str) -> Path | None:
 
 
 def _soulchain_block(folder: Path) -> str:
-    sys.path.insert(0, str(Path(r"C:\Trypnocore\fleet")))
+    sys.path.insert(0, os.environ.get("TRYP_SOULCHAIN", r"C:\Trypnocore\fleet"))
     try:
         from soulchain import Soulchain
     except Exception:

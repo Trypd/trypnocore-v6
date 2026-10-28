@@ -1,0 +1,7 @@
+{
+  "slug": "my-agent",
+  "folder": ".",
+  "pool": "my-agent",
+  "lane": "",
+  "note": "Solo agent; folder is relative to this trypnocore.json file."
+}

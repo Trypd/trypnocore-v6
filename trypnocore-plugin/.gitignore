@@ -1,0 +1,10 @@
+config.env
+.venv/
+__pycache__/
+*.pyc
+*.sqlite
+*.sqlite3
+*.npz
+service.pid
+service.log
+.test-*/

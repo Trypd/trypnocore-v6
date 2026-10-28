@@ -7,10 +7,11 @@ so worktrees and subdirs of a boot folder still resolve to their agent.
 from __future__ import annotations
 
 import json
+import os
 import re
 from pathlib import Path
 
-REGISTRY = Path(r"C:\Trypnocore\fleet\fleet-registry.json")
+REGISTRY = Path(os.environ.get("TRYP_FLEET_REGISTRY", r"C:\Trypnocore\fleet\fleet-registry.json"))
 
 
 def _norm(p: str) -> str:
@@ -23,8 +24,47 @@ def _norm(p: str) -> str:
     return p.rstrip("\\").lower()
 
 
+def _solo_agent(cwd: str) -> dict | None:
+    slug = os.environ.get("TRYP_AGENT_SLUG", "").strip()
+    if slug:
+        return {
+            "slug": slug,
+            "folder": os.environ.get("TRYP_BOOT_FOLDER") or cwd,
+            "pool": os.environ.get("OPZ_POOL") or slug,
+            "lane": os.environ.get("AGENT_LANE", ""),
+            "note": "solo",
+        }
+    current = Path(cwd or ".").resolve()
+    for folder in (current, *current.parents):
+        candidate = folder / "trypnocore.json"
+        if not candidate.is_file():
+            continue
+        try:
+            data = json.loads(candidate.read_text(encoding="utf-8"))
+        except Exception:
+            return None
+        data = data.get("agent", data)
+        slug = str(data.get("slug") or data.get("name") or "").strip()
+        if not slug:
+            return None
+        boot = Path(data.get("folder") or folder)
+        if not boot.is_absolute():
+            boot = folder / boot
+        return {
+            "slug": slug,
+            "folder": str(boot),
+            "pool": data.get("pool") or slug,
+            "lane": data.get("lane", ""),
+            "note": data.get("note", "solo"),
+        }
+    return None
+
+
 def resolve(cwd: str) -> dict | None:
-    """Registry entry for the agent whose folder contains cwd, or None."""
+    """Resolve solo config first, then the collective registry, if present."""
+    solo = _solo_agent(cwd)
+    if solo is not None:
+        return solo
     try:
         agents = json.loads(REGISTRY.read_text(encoding="utf-8"))["agents"]
     except Exception:

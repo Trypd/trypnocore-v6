@@ -4,6 +4,5 @@
 set -u
 tmp=$(mktemp /tmp/tryp-precompact-XXXXXX.json)
 cat > "$tmp"
-script=$(wslpath -w "${CLAUDE_PLUGIN_ROOT}/scripts/tryp_distill.py")
-nohup bash -c "timeout 180 cmd.exe /c \"C:\Trypnocore\OmegaPrimeZero\mcp\venv\Scripts\python.exe $script\" < \"$0\" >/dev/null 2>&1; rm -f \"$0\"" "$tmp" >/dev/null 2>&1 &
+nohup bash -c "timeout 180 \"${CLAUDE_PLUGIN_ROOT}/scripts/tryp-python.sh\" \"${CLAUDE_PLUGIN_ROOT}/scripts/tryp_distill.py\" < \"$0\" >/dev/null 2>&1; rm -f \"$0\"" "$tmp" >/dev/null 2>&1 &
 exit 0

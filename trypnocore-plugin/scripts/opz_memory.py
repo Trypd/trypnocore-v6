@@ -24,7 +24,7 @@ from mcp.server import Server
 from mcp.server.stdio import stdio_server
 from mcp.types import TextContent, Tool
 
-BASE = "http://127.0.0.1:8787"
+BASE = os.environ.get("OPZ_BASE_URL", "http://127.0.0.1:8787").rstrip("/")
 # Pool slaves memory to this agent's bootstrap identity (fleet launcher sets it).
 # Per-call pool argument overrides. Empty = the shared default store.
 DEFAULT_POOL = os.environ.get("OPZ_POOL", "").strip() or None
@@ -61,7 +61,7 @@ async def list_tools():
             ),
             inputSchema={
                 "type": "object",
-                "properties": {"line": {"type": "string"}},
+                "properties": {"line": {"type": "string"}, "pool": {"type": "string"}},
                 "required": ["line"],
             },
         ),
@@ -71,7 +71,7 @@ async def list_tools():
                 "List every memory atom currently stored in OmegaPrimeZero's "
                 "MeTTa store (episodic claims, insertion order)."
             ),
-            inputSchema={"type": "object", "properties": {}},
+            inputSchema={"type": "object", "properties": {"pool": {"type": "string"}}},
         ),
         Tool(
             name="trinket_context",
@@ -83,7 +83,7 @@ async def list_tools():
             ),
             inputSchema={
                 "type": "object",
-                "properties": {"line": {"type": "string"}},
+                "properties": {"line": {"type": "string"}, "pool": {"type": "string"}},
                 "required": ["line"],
             },
         ),
